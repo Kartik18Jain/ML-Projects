@@ -72,5 +72,5 @@ Cosine similarity is then used to find the response most similar to the user's q
 ### 1. Clone the repository
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/Kartik18Jain/ML-Projects.git
 cd ML-Projects
