@@ -390,19 +390,19 @@ section[data-testid="stSidebar"] {
 
 
 
-with open("models/chatbot_model_improved.pkl", "rb") as file:
+with open("models/chatbot_model.pkl", "rb") as file:
 
     model = pickle.load(file)
 
 
 
-with open("models/tfidf_vectorizer_improved.pkl", "rb") as file:
+with open("models/tfidf_vectorizer.pkl", "rb") as file:
 
     vectorizer = pickle.load(file)
 
 
 
-with open("models/label_encoder_improved.pkl", "rb") as file:
+with open("models/label_encoder.pkl", "rb") as file:
 
     label_encoder = pickle.load(file)
 
@@ -484,16 +484,15 @@ def get_response(user_message):
     cleaned_message = clean_text(user_message)
 
     generic_inputs = {
-        "same", "same same", "test", "testing", "asdf", "ok", "okay",
-        "hmm", "hmmm", "nothing", "random", "xyz"
-    }
-
+    "same", "same same", "test", "testing", "asdf", "ok", "okay",
+    "hmm", "hmmm", "nothing", "random", "xyz",
+    "is", "are", "am", "the", "a", "an", "hello", "hi", "hey"
+}
     sorry_message = (
-        "I'm sorry, but I couldn't find a reliable answer to that question "
-        "in the available university information. Please try asking about "
-        "courses, examinations, grades, academic policies, financial aid, "
-        "campus facilities, student services, or study abroad programs."
-    )
+    "I am not able to find a suitable answer to that question "
+    "in the available university information. Please try asking "
+    "a university-related question."
+)
 
     if not cleaned_message or cleaned_message in generic_inputs:
         return sorry_message
